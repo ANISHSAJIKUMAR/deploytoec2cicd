@@ -42,5 +42,5 @@ jobs:
               # php artisan down
               # php artisan up" > /home/ubuntu/scripts/github_action_script.sh
               cd /home/ubuntu/scripts/
-              rm -rf deploytoec2cicd
+              sudo rm -rf deploytoec2cicd
               sudo git clone https://github.com/ANISHSAJIKUMAR/deploytoec2cicd.git
