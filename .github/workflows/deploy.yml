@@ -1,0 +1,37 @@
+name: actions file for backend code
+on:
+  push:
+    branches:
+      - "master"
+jobs:        
+  bringing-up-docker-compose:
+    needs: initializing-and-testing-code
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying code to ec2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.INSTANCE_SSH_HOST}}
+          username: ${{secrets.INSTANCE_SSH_USERNAME}}
+          key: ${{secrets.INSTANCE_SSH_KEY}}
+          port: ${{secrets.INSTANCE_SSH_PORT}}
+          script: |
+            sudo echo "
+              #!/bin/bash
+              #sudo git clone https://username:password@github.com/simreka/console-dev.git
+              # git clone https://github.com/simreka/console-dev.git
+              git clone https://github.com/ANISHSAJIKUMAR/deploytoec2cicd.git
+              # cd console-dev
+              # cp .env.example .env
+              # php artisan key:generate
+              # chgrp -R www-data /var/www/project_dir_name
+              # chown -R www-data:www-data /var/www/project_dir_name
+              # chmod -R 775 /var/www/project_dir_name/storage
+              # chown -R www-data.www-data /var/www/project_dir_name/storage
+              # composer install && composer dump-autoload
+              # php artisan migrate:fresh
+              # php artisan db:seed
+              # php artisan serve
+              # php artisan down
+              # php artisan up" > /home/ubuntu/scripts/github_action_script.sh
+              bash /home/ubuntu/scripts/github_action_script.sh
