@@ -2,7 +2,7 @@ name: actions file for backend code
 on:
   push:
     branches:
-      - "master"
+      - "main"
 jobs:        
   bringing-up-docker-compose:
     needs: initializing-and-testing-code
