@@ -3,8 +3,16 @@ on:
   push:
     branches:
       - "main"
-jobs:        
-  bringing-up-docker-compose:
+jobs: 
+  initializing-and-testing-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking-out-repo
+        uses: actions/checkout@v2
+          
+      - run: echo "hii"
+
+  deploy-to-ec2:
     needs: initializing-and-testing-code
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +28,6 @@ jobs:
               #!/bin/bash
               #sudo git clone https://username:password@github.com/simreka/console-dev.git
               # git clone https://github.com/simreka/console-dev.git
-              git clone https://github.com/ANISHSAJIKUMAR/deploytoec2cicd.git
               # cd console-dev
               # cp .env.example .env
               # php artisan key:generate
@@ -34,4 +41,3 @@ jobs:
               # php artisan serve
               # php artisan down
               # php artisan up" > /home/ubuntu/scripts/github_action_script.sh
-              bash /home/ubuntu/scripts/github_action_script.sh
