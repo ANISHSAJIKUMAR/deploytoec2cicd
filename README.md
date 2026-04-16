@@ -19,3 +19,8 @@ This repository contains a simple deployment pipeline that builds and ships an a
 - Replace placeholder shell commands with the real deployment script.
 - Add validation before the EC2 step runs.
 - Keep the README aligned with the workflow and secrets used by the pipeline.
+
+## Notes for reviewers
+
+- This pipeline is intentionally minimal.
+- Replace placeholder steps with real deployment logic before using it in production.
