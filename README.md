@@ -1,29 +1,21 @@
-# Deploytoec2cicd
+# Deploy to EC2 CI/CD
 
-    Deploytoec2cicd: project repository with source, configuration, and documentation.
+This repository contains a simple deployment pipeline that builds and ships an application to an EC2 host.
 
-    ## Tech Stack
+## What it demonstrates
 
-    - Mixed / To be determined
+- GitHub Actions based deployment flow
+- Remote execution against an EC2 instance
+- Basic rollout steps that can be adapted for other applications
 
-    ## Repository Structure
+## Repository structure
 
-    - `a.txt`
-- `aa`
+- `README.md`: project overview and setup notes
+- `.github/workflows/deploy.yml`: deployment workflow
+- `a.txt` and `aa`: sample repo files used by the project
 
-    ## Getting Started
+## Recommended improvements
 
-    ```text
-Add project-specific setup/run steps here.
-```
-
-    ## Development Notes
-
-    - Keep secrets out of version control (use environment variables or local `.env` files).
-    - Run formatting/linting/tests before pushing changes.
-    - Update this README when setup or project scope changes.
-
-    ## Status
-
-    - README refreshed automatically on 2026-04-15.
-    - If any section is too generic for this repo, refine it with project-specific details.
+- Replace placeholder shell commands with the real deployment script.
+- Add validation before the EC2 step runs.
+- Keep the README aligned with the workflow and secrets used by the pipeline.
